@@ -1,0 +1,27 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.align-left {
+  text-align: left;
+}
+
+h1 {
+  color: #333;
+}
+
+p {
+    textalign: left;
+}
+
+#sum {
+  font-size: 24px;
+  margin-top: 20px;
+}
