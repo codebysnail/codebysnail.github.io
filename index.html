@@ -3,88 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>信息</title>
+  <title>信息面板</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      max-width: 700px;
-      margin: 30px auto;
-      padding: 0 16px;
-      font-family: system-ui, sans-serif;
-      line-height: 1.8;
-    }
-    .container {
-      margin-bottom: 24px;
-      padding: 20px;
-      border-radius: 10px;
-      background: #f8f9fa;
-    }
-    .container h1 {
-      text-align: center;
-      margin-bottom: 16px;
-      font-size: 20px;
-      color: #222;
-    }
-    #registeCode,
-    #backCode,
-    #oldbackCode {
-      margin: 10px 0;
-      padding: 8px 12px;
-      font-family: Consolas, monospace;
-      background: #fff;
-      border-radius: 6px;
-      min-height: 28px;
-    }
-    hr {
-      border: 0;
-      border-top: 1px solid #ddd;
-      margin: 22px 0;
-    }
-    p {
-      margin: 8px 0;
-      font-size: 16px;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>---注册信息---</h1>
-    <!-- 完全空白容器，无任何默认文字，等待script.js填充数据 -->
-    <div id="registeCode"></div>
-    <div id="backCode"></div>
-    <div id="oldbackCode"></div>
-  </div>
+  <main class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Infos</p>
+        <h2>信息面板</h2>
+      </div>
+    </header>
 
-  <hr>
-  <p>21493  wP199465@</p>
-  <hr>
+    <section class="panel codes-panel" aria-labelledby="codes-title">
+      <div class="panel-heading">
+        <div>
+          <p class="section-kicker">Dynamic Codes</p>
+          <h2 id="codes-title">动态码</h2>
+        </div>
+        <span class="status"><span class="status-dot"></span>实时更新</span>
+      </div>
 
-  <p>容器：
-    <a href="https://dashboard.katabump.com/dashboard" target="_blank">KataBump</a>
-  </p>
-  <p>miyin88401@hotkev.com</p>
+      <div class="code-list">
+        <div class="code-item" id="registeCode"></div>
+        <div class="code-item" id="backCode"></div>
+        <div class="code-item" id="oldbackCode"></div>
+      </div>
+    </section>
 
-  <hr>
-  <p>网址1：
-    <a href="shturl.cc/1V5CtelMH7vmYjNWhQgkdzkAUSem76H0C" target="_blank">自娱自乐</a>
-  </p>
-  <p>网址2：
-    <a href="https://ssh.hax.co.id/" target="_blank">SSH</a>
-  </p>
+    <section class="panel" aria-labelledby="links-title">
+      <div class="panel-heading">
+        <div>
+          <p class="section-kicker">Quick Links</p>
+          <h2 id="links-title">快捷链接</h2>
+        </div>
+      </div>
 
-  <!-- JS引入位置不变，页面DOM加载完成后执行脚本，正常操作三个div -->
+      <nav class="quick-links" aria-label="快捷链接">
+        <a href="https://ssh.hax.co.id/" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">S</span>
+          <span>
+            <strong>SSH</strong>
+            <small>ssh.hax.co.id</small>
+          </span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="https://woiden.id" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">W</span>
+          <span>
+            <strong>Free Nat VPS</strong>
+            <small>woiden.id</small>
+          </span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+          <a href="https://dashboard.katabump.com/dashboard" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">K</span>
+          <span>
+            <strong>KataBump</strong>
+            <small>dashboard.katabump.com</small>
+          </span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="https://bot-hosting.net/login" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">B</span>
+          <span>
+            <strong>Bot-Hosting</strong>
+            <small>bot-hosting.net</small>
+          </span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="https://m.youtube.com/" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">S</span>
+          <span>
+            <strong>YouTuBe</strong>
+            <small>youtube.com</small>
+          </span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="https://7mmtv.sx/zh/chinese_list/all/1.html" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">G</span>
+          <span>
+            <strong>自娱自乐</strong>
+            <small>Google</small>
+          </span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </nav>
+    </section>
+
+    <section class="panel" aria-labelledby="creds-title">
+      <div class="panel-heading">
+        <div>
+          <p class="section-kicker">Credentials</p>
+          <h2 id="creds-title">凭证信息</h2>
+        </div>
+      </div>
+
+      <dl class="info-list">
+        <div class="info-row">
+          <dt>账号密码</dt>
+          <dd class="mono">21493      wP199465@</dd>
+        </div>
+        <div class="info-row">
+          <dt>邮箱</dt>
+          <dd>miyin88401@hotkev.com</dd>
+        </div>
+      </dl>
+    </section>
+    <footer class="footer">
+      <p>© 2026 Powered by Snail</p>
+    </footer>
+  </main>
+
   <script src="script.js"></script>
 </body>
 </html>
