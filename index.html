@@ -1,118 +1,90 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>注册信息管理页</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>信息</title>
+  <link rel="stylesheet" href="styles.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Microsoft YaHei", system-ui, sans-serif;
     }
-
     body {
-      background-color: #f5f7fa;
-      color: #2d3748;
-      padding: 40px 20px;
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 0 16px;
+      font-family: system-ui, sans-serif;
       line-height: 1.8;
     }
-
-    .wrap {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .info-card {
-      background: #ffffff;
-      border-radius: 14px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-      padding: 30px;
+    .container {
       margin-bottom: 24px;
+      padding: 20px;
+      border-radius: 10px;
+      background: #f8f9fa;
     }
-
-    .info-card h1 {
-      font-size: 22px;
+    .container h1 {
       text-align: center;
-      color: #2b6cb0;
-      margin-bottom: 20px;
-      letter-spacing: 2px;
+      margin-bottom: 16px;
+      font-size: 20px;
+      color: #222;
     }
-
-    .code-item {
-      font-size: 16px;
-      padding: 8px 12px;
-      background: #f7fafc;
-      border-radius: 6px;
+    #registeCode,
+    #backCode,
+    #oldbackCode {
       margin: 10px 0;
+      padding: 8px 12px;
       font-family: Consolas, monospace;
+      background: #fff;
+      border-radius: 6px;
+      min-height: 28px;
     }
-
-    .divider {
-      height: 1px;
-      background: #cbd5e0;
-      margin: 26px 0;
-      border: none;
+    hr {
+      border: 0;
+      border-top: 1px solid #ddd;
+      margin: 22px 0;
     }
-
-    .link-block p {
-      margin: 12px 0;
+    p {
+      margin: 8px 0;
       font-size: 16px;
     }
-
     a {
-      color: #3182ce;
+      color: #0066cc;
       text-decoration: none;
-      transition: color 0.2s ease;
     }
-
     a:hover {
-      color: #2c5282;
       text-decoration: underline;
-    }
-
-    .account-text {
-      font-family: Consolas, monospace;
-      color: #2d3748;
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <!-- 注册信息卡片区域 -->
-    <div class="info-card">
-      <h1>—— 注册信息 ——</h1>
-      <div class="code-item" id="registerCode">注册码加载区域</div>
-      <div class="code-item" id="backCode">备用码加载区域</div>
-      <div class="code-item" id="oldbackCode">历史备用码加载区域</div>
-    </div>
-
-    <hr class="divider" />
-
-    <p class="account-text">21493  wP199465@</p>
-
-    <hr class="divider" />
-
-    <div class="link-block">
-      <p>容器平台：
-        <a href="https://dashboard.katabump.com/dashboard" target="_blank">KataBump</a>
-      </p>
-      <p class="account-text">miyin88401@hotkev.com</p>
-    </div>
-
-    <hr class="divider" />
-
-    <div class="link-block">
-      <p>
-        <a href="shturl.cc/YzMHfZh9hA4uT22ru7PpmKwTj86LFTTrD" target="_blank">自娱自乐</a>
-      </p>
-      <p>
-        <a href="https://ssh.hax.co.id/" target="_blank">SSH</a>
-      </p>
-    </div>
+  <div class="container">
+    <h1>---注册信息---</h1>
+    <!-- 完全空白容器，无任何默认文字，等待script.js填充数据 -->
+    <div id="registeCode"></div>
+    <div id="backCode"></div>
+    <div id="oldbackCode"></div>
   </div>
 
+  <hr>
+  <p>21493  wP199465@</p>
+  <hr>
+
+  <p>容器：
+    <a href="https://dashboard.katabump.com/dashboard" target="_blank">KataBump</a>
+  </p>
+  <p>miyin88401@hotkev.com</p>
+
+  <hr>
+  <p>网址1：
+    <a href="shturl.cc/1V5CtelMH7vmYjNWhQgkdzkAUSem76H0C" target="_blank">自娱自乐</a>
+  </p>
+  <p>网址2：
+    <a href="https://ssh.hax.co.id/" target="_blank">SSH</a>
+  </p>
+
+  <!-- JS引入位置不变，页面DOM加载完成后执行脚本，正常操作三个div -->
   <script src="script.js"></script>
 </body>
 </html>
