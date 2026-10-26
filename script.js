@@ -133,7 +133,7 @@ function displayFpiCustomCode() {
   }
   const p = (n) => n.toString().padStart(2, "0");
   const label = `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
-  out.textContent = `${label} ${fpiDynamicCode(d)}`;
+  out.textContent = `${fpiDynamicCode(d)}`;
 }
 
 const fpiCustomBtn = document.getElementById("fpiCustomBtn");
