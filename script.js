@@ -99,7 +99,7 @@ function fpiDynamicCode() {
 
   const d1 = s[0];
   const d2 = s.length > 1 ? s[1] : "0";
-  return `Ctrl + FPI + ${d1}${mid}${d2}`;
+  return `当前码：${d1}${mid}${d2}`;
 }
 
 function displayFpiCode() {
