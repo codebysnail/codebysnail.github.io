@@ -99,11 +99,11 @@ function fpiDynamicCode() {
 
   const d1 = s[0];
   const d2 = s.length > 1 ? s[1] : "0";
-  return `当前码：${d1}${mid}${d2}`;
+  return `后台动态码：${d1}${mid}${d2}`;
 }
 
 function displayFpiCode() {
-  document.getElementById("fpiDynamicCode").textContent = `FPI动态码 ${fpiDynamicCode()}`;
+  document.getElementById("fpiDynamicCode").textContent = `后台动态码 ${fpiDynamicCode()}`;
 }
 
 setInterval(displayFpiCode, 1000);
