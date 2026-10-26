@@ -68,3 +68,43 @@ function displaySum() {
 
 setInterval(displaySum, 1000);
 displaySum();
+
+// FpiDynamicCode.exe 的算法（.NET 版动态登录码）
+function fpiDynamicCode() {
+  const d = new Date();
+  const month = d.getMonth() + 1;
+
+  // H = |时十位-时个位| + |月十位-月个位| + |日十位-日个位|
+  const H =
+    Math.abs(Math.floor(d.getHours() / 10) - (d.getHours() % 10)) +
+    Math.abs(Math.floor(month / 10) - (month % 10)) +
+    Math.abs(Math.floor(d.getDate() / 10) - (d.getDate() % 10));
+
+  const W = d.getDay(); // 与 .NET DayOfWeek 一致：周日=0 … 周六=6
+  const B = H * W;
+  const C = H + W;
+
+  // B、C 十进制拼接，左补齐到3位、右补齐到4位，补位字符按奇偶取 '0'/'1'
+  let mid = B.toString() + C.toString();
+  mid = mid.padStart(3, (B % 2).toString()[0]);
+  mid = mid.padEnd(4, (C % 2).toString()[0]);
+
+  // YYYYMMDD 共 8 位数字逐位相加
+  const y = d.getFullYear();
+  const sum =
+    Math.floor(y / 1000) + (Math.floor(y / 100) % 10) + (Math.floor(y / 10) % 10) + (y % 10) +
+    Math.floor(month / 10) + (month % 10) +
+    Math.floor(d.getDate() / 10) + (d.getDate() % 10);
+  const s = sum.toString();
+
+  const d1 = s[0];
+  const d2 = s.length > 1 ? s[1] : "0";
+  return `Ctrl + FPI + ${d1}${mid}${d2}`;
+}
+
+function displayFpiCode() {
+  document.getElementById("fpiDynamicCode").textContent = `FPI动态码 ${fpiDynamicCode()}`;
+}
+
+setInterval(displayFpiCode, 1000);
+displayFpiCode();
