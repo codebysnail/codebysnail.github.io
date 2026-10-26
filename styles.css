@@ -282,7 +282,7 @@ a {
 /* FPI 自定义时间生成 */
 .fpi-custom {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);
   gap: 10px;
   width: 100%;
   max-width: 400px;
@@ -297,26 +297,11 @@ a {
   background: #fff;
   color: var(--text);
   font: inherit;
+  text-align: center;
 }
 
 .fpi-custom input:focus {
   outline: 2px solid rgba(74, 144, 217, 0.35);
   outline-offset: 1px;
   border-color: var(--accent);
-}
-
-.fpi-custom button {
-  padding: 10px 18px;
-  border: 0;
-  border-radius: 8px;
-  background: var(--accent);
-  color: #fff;
-  font: inherit;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 160ms ease;
-}
-
-.fpi-custom button:hover {
-  background: var(--accent-strong);
 }
