@@ -99,11 +99,11 @@ function fpiDynamicCode(d = new Date()) {
 
   const d1 = s[0];
   const d2 = s.length > 1 ? s[1] : "0";
-  return `Ctrl+FPI+${d1}${mid}${d2}`;
+  return `Ctrl + FPI + ${d1}${mid}${d2}`;
 }
 
 function displayFpiCode() {
-  document.getElementById("fpiDynamicCode").textContent = `新动态码 ${fpiDynamicCode()}`;
+  document.getElementById("fpiDynamicCode").textContent = `FPI动态码 ${fpiDynamicCode()}`;
 }
 
 setInterval(displayFpiCode, 1000);
@@ -123,22 +123,20 @@ function displayFpiCustomCode() {
   const out = document.getElementById("fpiCustomCode");
   if (!input || !out) return;
   if (!input.value) {
-    out.textContent = "请先选择日期时间";
+    out.textContent = "FPI自定义码 请先选择日期时间";
     return;
   }
   const d = parseLocalDateTime(input.value);
   if (Number.isNaN(d.getTime())) {
-    out.textContent = "时间格式无效，示例：2026-10-26 12:00";
+    out.textContent = "FPI自定义码 时间格式无效，示例：2026-10-26 12:00";
     return;
   }
   const p = (n) => n.toString().padStart(2, "0");
   const label = `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
-  out.textContent = `${fpiDynamicCode(d)}`;
+  out.textContent = `FPI自定义码 ${label} ${fpiDynamicCode(d)}`;
 }
 
-const fpiCustomBtn = document.getElementById("fpiCustomBtn");
 const fpiCustomInput = document.getElementById("fpiCustomInput");
-if (fpiCustomBtn) fpiCustomBtn.addEventListener("click", displayFpiCustomCode);
 if (fpiCustomInput) {
   fpiCustomInput.addEventListener("change", displayFpiCustomCode);
   fpiCustomInput.addEventListener("input", displayFpiCustomCode);
