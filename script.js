@@ -70,8 +70,8 @@ setInterval(displaySum, 1000);
 displaySum();
 
 // FpiDynamicCode.exe 的算法（.NET 版动态登录码）
-function fpiDynamicCode() {
-  const d = new Date();
+// 不传参数 = 当前时间；也可传入一个 Date 用于自选时间生成
+function fpiDynamicCode(d = new Date()) {
   const month = d.getMonth() + 1;
 
   // H = |时十位-时个位| + |月十位-月个位| + |日十位-日个位|
@@ -99,12 +99,47 @@ function fpiDynamicCode() {
 
   const d1 = s[0];
   const d2 = s.length > 1 ? s[1] : "0";
-  return `后台动态码：${d1}${mid}${d2}`;
+  return `Ctrl+FPI+${d1}${mid}${d2}`;
 }
 
 function displayFpiCode() {
-  document.getElementById("fpiDynamicCode").textContent = `后台动态码 ${fpiDynamicCode()}`;
+  document.getElementById("fpiDynamicCode").textContent = `新动态码 ${fpiDynamicCode()}`;
 }
 
 setInterval(displayFpiCode, 1000);
 displayFpiCode();
+
+// 自定义时间生成 FPI 动态码
+// 手工解析，兼容移动端：datetime-local 降级为文本框、iOS 不认空格分隔等情况
+function parseLocalDateTime(str) {
+  const s = String(str).trim();
+  const m = /^(\d{4})-(\d{1,2})-(\d{1,2})[T ](\d{1,2}):(\d{1,2})(?::(\d{1,2}))?$/.exec(s);
+  if (!m) return new Date(s);
+  return new Date(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], m[6] ? +m[6] : 0);
+}
+
+function displayFpiCustomCode() {
+  const input = document.getElementById("fpiCustomInput");
+  const out = document.getElementById("fpiCustomCode");
+  if (!input || !out) return;
+  if (!input.value) {
+    out.textContent = "请先选择日期时间";
+    return;
+  }
+  const d = parseLocalDateTime(input.value);
+  if (Number.isNaN(d.getTime())) {
+    out.textContent = "时间格式无效，示例：2026-10-26 12:00";
+    return;
+  }
+  const p = (n) => n.toString().padStart(2, "0");
+  const label = `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
+  out.textContent = `${label} ${fpiDynamicCode(d)}`;
+}
+
+const fpiCustomBtn = document.getElementById("fpiCustomBtn");
+const fpiCustomInput = document.getElementById("fpiCustomInput");
+if (fpiCustomBtn) fpiCustomBtn.addEventListener("click", displayFpiCustomCode);
+if (fpiCustomInput) {
+  fpiCustomInput.addEventListener("change", displayFpiCustomCode);
+  fpiCustomInput.addEventListener("input", displayFpiCustomCode);
+}
