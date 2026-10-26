@@ -279,23 +279,20 @@ a {
   }
 }
 
-/* FPI 自定义时间生成 */
+/* FPI 自定义时间生成：单元素全宽，与上下码值框完全对齐 */
 .fpi-custom {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 10px;
   width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
 }
 
 .fpi-custom input {
-  min-width: 0;
-  padding: 10px 12px;
-  border: 1px solid var(--border);
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid rgba(74, 144, 217, 0.16);
   border-radius: 8px;
-  background: #fff;
-  color: var(--text);
+  background: linear-gradient(180deg, #ffffff, var(--surface-muted));
+  color: var(--accent-strong);
   font: inherit;
   text-align: center;
 }
